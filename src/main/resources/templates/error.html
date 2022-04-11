@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Algo errado</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+
+  </head>
+
+  <body id="top">
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+      <div id="loader" class="dots-jump">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+
+    <!-- header 
+    ================================================== -->
+    <header class="s-header">
+
+      <div class="row">
+        <div class="header-logo">
+          <a class="site-logo" href="/">
+            <span>ROBSON<br>PRODUÇÕES</span>
+            <!--<img src="images/icon.png"/>-->
+          </a>
+        </div>
+
+        <nav class="header-nav-wrap">
+          <ul class="header-main-nav">
+            <li class="current"><a class="smoothscroll" href="#home" title="intro">Início</a></li>
+            <li><a class="smoothscroll" href="#about" title="about">Serviços</a></li>
+            <li><a class="smoothscroll" href="#features" title="features">Comentários</a></li>
+            <li><a class="smoothscroll" href="#pricing" title="pricing">Preços</a></li>
+            <li><a th:href="@{/jobs}" title="download">Trabalhos</a></li>	
+          </ul>
+
+          <div class="header-cta">
+            <a href="#footer" class="btn btn--primary header-cta__btn smoothscroll">Comece já</a>
+          </div>
+        </nav> <!-- end header-nav-wrap -->
+
+        <a class="header-menu-toggle" href="#"><span>Menu</span></a>
+      </div>
+
+    </header> <!-- end header -->
+
+
+    <!-- home
+    ================================================== -->
+    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="https://media.istockphoto.com/photos/condenser-microphone-on-boom-stand-with-headphones-picture-id1304350107?b=1&k=20&m=1304350107&s=170667a&w=0&h=HAIGJnU61G_qXzck6nHg7qkYxLt0fi4Bw2LFOAuEWIw=" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
+
+      <div class="shadow-overlay"></div>
+
+      <div class="home-content">
+
+        <div class="row home-content__main">
+
+          <div class="home-content__left">
+            <h1>
+              Algo deu errado
+            </h1>
+
+            <h3>
+              Voluptatem ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explica. Nemo enim ipsam voluptatem quia. 
+              Ut quis enim.
+            </h3>
+
+            <div class="home-content__btn-wrap">
+              <a th:href="@{/}" class="btn btn--primary home-content__btn smoothscroll">
+                Início
+              </a>
+            </div>
+          </div> <!-- end home-content__left-->
+
+
+
+        </div> <!-- end home-content__main -->
+
+        <ul class="home-content__social">
+          <li><a href="#0">Facebook</a></li>
+          <li><a href="#0">twitter</a></li>
+          <li><a href="#0">Instagram</a></li>
+        </ul>
+
+      </div> <!-- end home-content -->
+
+      <a href="#about" class="home-scroll smoothscroll">
+        <span class="home-scroll__text">Scroll</span>
+        <span class="home-scroll__icon"></span>
+      </a> 
+
+    </section> <!-- end s-home -->
+
+    <!-- footer
+    ================================================== -->
+    <footer class="s-footer footer" id="footer">
+
+      <div class="row section-header align-center">
+        <div class="col-full">
+          <h1 class="display-1">
+            Faça contato e envie uma amostra do seu trabalho.
+          </h1>
+          <p class="lead">
+            Subscribe for updates, special offers, and other amazing stuff.
+          </p>
+        </div>
+      </div> <!-- end section-header -->
+
+      <div class="row footer__top" >
+
+        <div class="col-full footer__subscribe end">
+          <div class="subscribe-form">
+            <form id="mc-form" class="group">
+
+              <input type="email" value="" name="EMAIL" class="input-text" id="mc-email" placeholder="Endereço de email"
+                     required="">
+              <input type="email" value="" name="EMAIL" class="input-text" id="mc-email" placeholder="Nome"
+                     required="">
+              <textarea class="input-text" id="mc-message" placeholder="Envie uma mensagem"></textarea>
+              <div class="upload-field">
+                <input type="email" value="" name="EMAIL" class="input-text" placeholder="Carregue uma amostra" disabled>
+                <input type="button" name="subscribe" value="Upload" onclick="uploadFile()">
+                <input type="file" id="upload-input" style="display:none;">
+              </div>
+
+              <input type="submit" class="btn btn--primary" name="subscribe" value="Enviar">
+
+            </form>
+          </div>
+        </div>
+
+      </div> <!-- end footer__top -->
+
+      <div class="row footer__bottom">
+
+        <div class="footer__about col-five tab-full left">
+
+          <h4>Sobre nós.</h4>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed 
+            do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+            laboris nisi ut aliquip ex consectetur adipisicing elit do eiusmod tempor.
+          </p>
+
+          <ul class="footer__social">
+            <li><a href="#0"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+            <li><a href="#0"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="#0"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+
+        <div class="col-five md-seven tab-full right end">
+          <div class="row">
+
+            <div class="footer__site-links col-five mob-full">
+              <h4>Links.</h4>
+
+              <ul class="footer__site-links">
+                <li><a href="#home" class="smoothscroll">Início</a></li>
+                <li><a href="#about" class="smoothscroll">Serviços</a></li>
+                <li><a href="#features" class="smoothscroll">Comentários</a></li>
+                <li><a href="#pricing" class="smoothscroll">Preços</a></li>
+                <li><a href="#footer" class="smoothscroll">Contato</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__contact col-seven mob-full">
+              <h4>Entre em contato.</h4>
+
+              <p>
+                Telefone (+63) 555 1212 <br>
+                Whatsapp: (+63) 555 0100
+              </p>
+              <p>
+                Caso queira nos enviar um email <br>
+                <a href="mailto:#0" class="footer__mail-link">support@kairos.com</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-full ss-copyright">
+          <span>&copy; Copyright robsonproducoes 2022</span> 
+        </div>
+
+      </div> <!-- end footer__bottom -->
+
+      <div class="go-top">
+        <a class="smoothscroll" title="Back to Top" href="#top"></a>
+      </div>
+
+    </footer> <!-- end s-footer -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+  </body>

@@ -1,0 +1,9 @@
+:root {
+    --main-color: #9D0191;
+    --hover-main-color: #8C0080;
+    --body-background-color: #121619;
+    --dark-body-color: #0e1113;
+    --light-background: #eaeaea;
+    --light-gray: #ffffff99;
+    --dark-gray: linear-gradient(27deg, #000, #111);
+}

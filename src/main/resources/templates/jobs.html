@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"/>
+
+<head>
+  <title>Nossos trabalhos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/jobs.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!-- script
+      ================================================== -->
+      <script src="js/modernizr.js"></script>
+      <script src="js/pace.min.js"></script>
+
+      <!-- favicons
+      ================================================== -->
+      <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+        <link rel="icon" href="logo.png" type="image/x-icon">
+          </head>
+
+          <body id="top">
+
+            <!-- preloader
+            ================================================== -->
+            <div id="preloader">
+              <div id="loader" class="dots-jump">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+
+            <!-- header 
+            ================================================== -->
+            <header class="s-header">
+
+              <div class="row">
+                <div class="header-logo">
+                  <a class="site-logo" href="/">
+                    ROBSON<br>PRODUÇÕES
+                  </a>
+                </div>
+
+                <nav class="header-nav-wrap">
+                  <ul class="header-main-nav">
+                    <li class="current"><a  href="/#home" title="intro">Início</a></li>
+                    <li><a  href="/#about" title="Serviços">Serviços</a></li>
+                    <li><a  href="/#features" title="Comentários">Comentários</a></li>
+                    <li><a  href="/#pricing" title="Preços">Preços</a></li>
+                    <li><a  th:href="@{trabalhos}" title="Trabalhos">Trabalhos</a></li>	
+                  </ul>
+
+                  <div class="header-cta">
+                    <a href="/#footer" class="btn btn--primary header-cta__btn smoothscroll">Comece já</a>
+                  </div>
+                </nav> <!-- end header-nav-wrap -->
+
+                <a class="header-menu-toggle" href="#"><span>Menu</span></a>
+              </div>
+
+            </header> <!-- end header -->
+
+            <!-- player
+            ================================================== -->
+            <section class="s-banner" data-parallax="scroll" data-image-src="images/hero-bg.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
+              <nav id="category-nav">
+                <ul>
+                  <li><a href="/trabalhos?category=SERTANEJO">Sertanejo</a></li>
+                  <li><a href="/trabalhos?category=GOSPEL">Gospel</a></li>
+                  <li><a href="/trabalhos?category=FORRÓ">Forró</a></li>
+
+                </ul>
+              </nav>
+              <h1 th:text="${categoryName}"></h1>
+              <ul class="home-content__social">
+                <li><a href="#0">Facebook</a></li>
+                <li><a href="#0">twitter</a></li>
+                <li><a href="#0">Instagram</a></li>
+              </ul>
+            </section>
+
+            <section class="s-playlist">
+              <div class="shadow-overlay"></div>
+
+              <audio src="https://robsonproducoes.blob.core.windows.net/songs/Mergulhei.mp3" id="audio"></audio>
+
+              <div class="playlist-wrapper">
+                <div class="music-player-container">
+                  <div class="music-player">
+                    <div class="player-content-container">
+                      <h1 class="artist-name">Conheça nossas amostras!</h1>
+                      <h2 class="album-title"></h2>
+                      <h3 class="song-title"></h3>
+                      <div class="music-player-controls">
+                        <div class="control-play"></div><!--  /.control-play -->
+                      </div><!--  /.music-player-controls -->
+                    </div><!--  /.player-content-container -->
+                  </div><!--  /.music-player -->
+
+
+
+                  <div class="album" data-aos="fade-left">
+
+                    <div class="album-art" th:style="'background-image: url('+${bannerUrl}+')'"></div><!--  /.album-art -->
+                  </div><!--  /.album-art -->
+
+                </div><!--  /.music-player -->
+                <div class="playlist">
+                  <div th:if="${!productions.isEmpty()}" class="song-item" th:each="production : ${productions}" 
+                       th:onclick="setAudio(this, [[${production.songName}]], [[${production.autorName}]], [[${production.category.name}]], [[${production.fileName}]])">
+                    
+                    <span th:text="${production.songName} + ' - Produção'">Song name</span>
+                    <div class="download-button">
+                      <a download id="downloadLink" th:href="@{'https://robsonproducoesstorage.blob.core.windows.net/songs/'+${production.fileName}}+'?sv=2020-08-04&ss=bqtf&srt=sco&sp=rwdlacuptfxi&se=2022-04-10T12:08:28Z&sig=N3fIIshWdJv%2FoD2hV8ij6UaRXN4ad47z9dCLfRxlppI%3D&_=1649564335731'">
+                        <i class="fa-solid fa-download" ></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div th:if="${!samples.isEmpty()}" class="song-item" th:each="sample : ${samples}" 
+                       th:onclick="setAudio(this, [[${sample.songName}]], [[${sample.autorName}]], [[${sample.category.name}]], [[${sample.fileName}]])"
+                       >
+                    
+                    <span th:text="${sample.songName + ' - Guia'}">Song name</span>
+                    <div class="download-button">
+                      <a download="testing" id="downloadLink" th:href="@{'https://robsonproducoesstorage.blob.core.windows.net/songs/'+${sample.fileName}}" target="_blank">
+                        <i class="fa-solid fa-download" th:onclick="downloadFile([[${sample.fileName}]])"></i>
+                      </a>
+                    </div>
+                  </div>         
+                </div>
+              </div>
+            </section>
+
+            <!-- footer
+            ================================================== -->
+            <footer class="s-footer footer">
+
+
+              <div class="row footer__bottom">
+
+                <div class="footer__about col-five tab-full left">
+
+                  <h4>Sobre nós.</h4>
+
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed 
+                    do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                    laboris nisi ut aliquip ex consectetur adipisicing elit do eiusmod tempor.
+                  </p>
+
+                  <ul class="footer__social">
+                    <li><a href="#0"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                    <li><a href="#0"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#0"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                  </ul>
+                </div>
+
+                <div class="col-five md-seven tab-full right end">
+                  <div class="row">
+
+                    <div class="footer__site-links col-five mob-full">
+                      <h4>Links.</h4>
+
+                      <ul class="footer__site-links">
+                        <li><a href="/#home" class="smoothscroll">Início</a></li>
+                        <li><a href="/#about" class="smoothscroll">Serviços</a></li>
+                        <li><a href="/#features" class="smoothscroll">Comentários</a></li>
+                        <li><a href="/#pricing" class="smoothscroll">Preços</a></li>
+                        <li><a href="/#footer" class="smoothscroll">Contato</a></li>
+                      </ul>
+                    </div>
+
+                    <div class="footer__contact col-seven mob-full">
+                      <h4>Entre em contato.</h4>
+
+                      <p>
+                        Telefone (+63) 555 1212 <br>
+                          Whatsapp: (+63) 555 0100
+                      </p>
+                      <p>
+                        Caso queira nos enviar um email <br>
+                          <a href="mailto:#0" class="footer__mail-link">support@kairos.com</a>
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-full ss-copyright">
+                  <span>&copy; Copyright robsonproducoes 2022</span> 
+                </div>
+
+              </div> <!-- end footer__bottom -->
+
+              <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"></a>
+              </div>
+
+            </footer> <!-- end s-footer -->
+
+
+            <!-- Java Script
+        ================================================== -->
+
+            <script src="js/jquery-3.2.1.min.js"></script>
+            <script src="js/plugins.js"></script>
+            <script src="js/main.js"></script> 
+
+          </body>

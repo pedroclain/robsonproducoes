@@ -1,0 +1,336 @@
+@charset "UTF-8";
+
+@import "variables.css";
+@import "base.css";
+@import "vendor.css";
+@import "shared.css";
+
+@import "bourbon";
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,700);
+
+/* ------------------------------------------------------------------- 
+ * ## Jobs page
+ * ------------------------------------------------------------------- */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.s-header {
+  top: 0;
+  background-color: var(--dark-body-color) !important;
+}
+
+.s-banner {
+  background-color: transparent;
+  position: relative;
+  min-height: 678px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  
+}
+
+.s-banner > * {
+  z-index: 1;
+}
+
+.s-banner nav {
+  margin-top: 140px;
+}
+
+.s-banner::before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background-color: #000000;
+}
+
+.s-banner .shadow-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* ------------------------------------------------------------------- 
+ * ## home social
+ * ------------------------------------------------------------------- */
+.home-content__social {
+  list-style: none;
+  margin: 0;
+  font-size: 10px;
+  line-height: 2.4rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  position: absolute;
+  right: calc(40px + (5.6rem/2));
+  top: 50%;
+  -webkit-transform: rotate(-90deg) translate3d(50%, 0, 0);
+  -ms-transform: rotate(-90deg) translate3d(50%, 0, 0);
+  transform: rotate(-90deg) translate3d(50%, 0, 0);
+  -webkit-transform-origin: right center;
+  -ms-transform-origin: right center;
+  transform-origin: right center;
+}
+
+.home-content__social li {
+  display: inline;
+  margin-right: 6px;
+}
+
+.home-content__social li:last-child {
+  margin-right: 0;
+}
+
+.home-content__social a {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.home-content__social a:hover,
+.home-content__social a:hover,
+.home-content__social a:active {
+  color: #ffffff;
+}
+
+.s-banner h1 {
+  color: white;
+  text-transform: uppercase;
+}
+
+#category-nav ul {
+  display: inline-flex;
+  list-style: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#category-nav ul li a {
+  margin: 0 12px;
+  color: var(--light-gray);
+  padding: 8px;
+}
+
+#category-nav ul li a:hover {
+  color: white;
+}
+.s-playlist {
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.s-playlist .playlist-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.music-player-container {
+  z-index: 10;
+  display: inline-block;
+  height: 370px;
+  min-width: 340px;
+  margin-top: -10%;
+}
+
+/* .music-player-container:after {
+   filter: blur(8px);
+   background-color: rgba(0, 0, 0, 0.8);
+   bottom: -2px;
+   content: ' ';
+   display: block;
+   height: 10px;
+   left: 19px;
+   position: absolute;
+   transform: rotate(-3deg);
+   width: 70%;
+   z-index: 0;
+} */
+.music-player {
+  background-color: var(--light-background);
+  height: 370px;
+  padding: 40px 250px 40px 40px;
+  position: absolute;
+  text-align: right;
+  width: 460px;
+  z-index: 3;
+}
+.player-content-container {
+  transform: translateY(-50%);
+  top: 50%;
+  position: relative;
+}
+.artist-name {
+  font-size: 28px;
+  font-weight: normal;
+  margin: 0 0 0.75em 0;
+}
+.album-title {
+  font-weight: 200;
+  font-size: 24px;
+  margin: 0 0 1.75em 0;
+  text-transform: uppercase;
+}
+.song-title {
+  font-size: 18px;
+  font-weight: 200;
+  margin: 0 0 1.5em 0;
+  color: var(--main-color);
+}
+.album {
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.65);
+  height: 315px;
+  width: 315px;
+  margin-left: 250px;
+  margin-top: 27px;
+  position: relative;
+  z-index: 10;
+}
+.album-art {
+  background: #fff center / cover no-repeat;
+  height: 315px;
+  position: relative;
+  width: 315px;
+}
+
+.album::before {
+  z-index: 1;
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-color: #000000;
+}
+
+.music-player-controls {
+  text-align: center;
+  display: inline-flex;
+  gap: 20px;
+}
+
+.music-player-controls .control-play {
+  background: url("../images/play-icon.png") no-repeat center transparent;
+  background-size: contain;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}
+
+.is-playing .music-player-controls .control-play {
+  background: url("../images/pause-icon.png") no-repeat center transparent;
+  background-size: contain;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}
+
+[class^="control-"] i{
+  filter: brightness(95%);
+  color: var(--main-color); 
+}
+
+.play-pause {
+  font-size: 2em;
+}
+
+[class^="fa-volume-"] {
+  font-size: 1.2em;
+}
+[class^="control-"] i:hover {
+  filter: brightness(85%);
+  cursor: pointer;
+}
+
+.playlist {
+  display: flex;
+  flex-direction: column;
+  width: 460px;
+  min-height: 120px;
+}
+
+.song-item {
+  min-width: 100%;
+  padding: 16px 24px;
+  color: var(--light-gray);
+  background-color: var(--dark-body-color);
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.song-item .download-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: .3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+
+}
+
+.song-item .download-button:hover {
+  background-color: rgba(255, 255, 255, .04);
+  transition: .3s;
+}
+
+.song-item .fa-download {
+  color: var(--light-gray);
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.song-item.active {
+  background-color: var(--main-color);
+  color: white;
+}
+
+.song-item.active .fa-download {
+  color: white;
+}
+
+@media only screen and (max-width:570px) {
+  .album {
+    width: 210px;
+    height: 210px;
+    margin-left: 150px;
+    margin-top: 70px;
+  }
+  
+  .album-art {
+    width: 210px;
+    height: 210px;
+  }
+  
+  .music-player {
+    padding: 40px 215px 40px 30px;
+    width: 350px;
+  }
+  .artist-name {
+    font-size: 18px;
+  }
+  
+  .playlist {
+    width: 350px;
+  }
+}
